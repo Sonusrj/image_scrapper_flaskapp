@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Search Results</title>
+    <style>
+        body {
+            background-color: #dcefa8;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 50px;
+        }
+
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .image-container img {
+            margin: 10px;
+            width: 300px;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Search Results for "{{ query }}"</h1>
+    <div class="image-container">
+        {% for data in img_data %}
+            <img src="data:image/jpeg;base64,{{ data.image|b64encode }}" alt="Image">
+        {% endfor %}
+    </div>
+</body>
+</html>
